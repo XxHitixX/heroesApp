@@ -1,8 +1,12 @@
 import { NgModule } from '@angular/core';
 
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { MatFormFieldModule } from "@angular/material/form-field";
 import { MatGridListModule } from '@angular/material/grid-list';
+import { MatInputModule } from "@angular/material/input";
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
@@ -13,12 +17,16 @@ import { MatToolbarModule } from '@angular/material/toolbar';
   declarations: [],
   imports: [],
   exports: [
+    MatAutocompleteModule,
     MatButtonModule,
+    MatFormFieldModule,
+    MatInputModule,
     MatIconModule,
     MatSidenavModule,
     MatToolbarModule,
     MatListModule,
     MatCardModule,
+    MatExpansionModule,
     MatProgressSpinnerModule,
     MatGridListModule
   ]

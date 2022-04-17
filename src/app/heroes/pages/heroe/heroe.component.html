@@ -5,5 +5,32 @@
 </mat-grid-list>
 
 <ng-template #contenido>
-    {{ heroe|json}}
+    
+    <div fxLayout="row"
+         fxLayout.xs="column wrap"
+         fxLayoutGap="30px">
+        
+         <div fxFlex="50">
+             <h1> {{ heroe.superhero }} <small>- {{ heroe.alter_ego }} </small></h1> 
+             <mat-divider></mat-divider>
+             <br>
+            <img [src]="heroe |imagen" >
+         </div>
+         
+        <div fxFlex="50">
+            <h2>Información</h2>
+            <mat-divider></mat-divider>
+            <br>
+            <mat-list>
+                <mat-list-item> <strong>Primera aparición: </strong> {{ heroe.first_appearance }} </mat-list-item>
+                <mat-list-item> <strong>personajes: </strong> {{ heroe.characters }} </mat-list-item>
+                <mat-list-item> <strong>Publicado por: </strong> {{ heroe.publisher }} </mat-list-item>
+            </mat-list>
+            
+            <button mat-button color="warn" (click)="volver()">Volver</button>
+
+        </div>
+         
+       
+    </div>
 </ng-template>

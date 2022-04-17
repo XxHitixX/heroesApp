@@ -1,1 +1,51 @@
-<p>buscar works!</p>
+<div fxLayout="column">
+    <div>
+        <h1>Buscador de heroes</h1>
+        <mat-divider></mat-divider>
+        <br>        
+    </div>
+    <div fxLayout="column">
+        <h3>Buscar heroe</h3>
+        <mat-form-field >
+            <mat-label>Toca para buscar</mat-label>
+            <input type="text"
+                   placeholder="Buscar heroe por ej. Mujer maravilla"
+                   aria-label="buscar"
+                   matInput
+                   [(ngModel)]="termino"
+                   (input)="buscarHeroe()"
+                   [matAutocomplete]="auto">
+            <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete"
+                            (optionSelected) = "opcionSeleccionada( $event )">
+              <mat-option *ngFor="let heroe of heroes" [value]="heroe">
+                {{ heroe.superhero }}
+              </mat-option>
+              <mat-option value="" *ngIf="!heroes.length && termino.trim().length > 0">
+                <blockquote>No hay resultado relacionado con <strong>{{ termino }}</strong></blockquote>
+              </mat-option>
+            </mat-autocomplete>
+          </mat-form-field>
+    </div>
+
+    
+   
+    <div class="pequenio" *ngIf="heroeSeleccionado">
+    <app-heroe-tarjeta [heroe]="heroeSeleccionado"></app-heroe-tarjeta>
+
+    <div style="margin-top: 10px;"> 
+       <mat-accordion>
+         <mat-expansion-panel>
+           <mat-expansion-panel-header>
+             <mat-panel-title>
+               Json enviado desde el server
+             </mat-panel-title>
+             <mat-panel-description>
+               información que viene de la base de datos
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+          <pre> {{ heroeSeleccionado |json }} </pre>
+         </mat-expansion-panel>
+       </mat-accordion>
+    </div>
+</div>
+
