@@ -29,7 +29,7 @@ import { ImagenPipe } from './pipes/imagen.pipe';
     FormsModule,
     HeroesRoutingModule,
     FlexLayoutModule,
-    MaterialModule
+    MaterialModule,
   ]
 })
 export class HeroesModule { }
