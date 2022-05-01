@@ -2,7 +2,9 @@ import { Pipe, PipeTransform } from '@angular/core';
 import { Heroe } from '../interfaces/heroes.interface';
 
 @Pipe({
-  name: 'imagen'
+  name: 'imagen',
+  pure: false//esto es para que cambie o se active el pipe con cada cambio de deteccion de 
+  //angular por defecto está en true
 })
 export class ImagenPipe implements PipeTransform {
 

@@ -1,4 +1,7 @@
-<h1>Agregar héroe <small> {{ heroe.superhero }} </small></h1>
+<h1>
+    {{ (heroe.id) ? 'Editar' : 'Crear' }}
+     héroe <small> {{ heroe.superhero }} </small>
+</h1>
 
 <mat-divider style="margin-bottom: 10px;"></mat-divider>
 
@@ -66,8 +69,18 @@
 
             <button mat-raised-button color="warn" (click)="agregar()">
                 <mat-icon>save</mat-icon>
-                Guardar
+                {{ (heroe.id) ? 'Actualizar' : 'Crear' }}
             </button>
+
+            <span class="spacer"></span>
+
+            <button *ngIf="heroe.id"
+            mat-raised-button color="primary" 
+                    (click)="eliminar()">
+                <mat-icon>remove</mat-icon>
+                Eliminar
+            </button>
+
         </div>
 
         <div fxFlex="50">

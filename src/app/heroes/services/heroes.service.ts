@@ -33,4 +33,10 @@ export class HeroesService {
   editarHeroe(heroe : Heroe):Observable<Heroe>{
     return this.http.put<Heroe>(`${this.baseUrl}/heroes/${ heroe.id }`, heroe)
   }
+
+  //La devolucion del Observable puede ser any porque no devuelve
+  //nada o unas llaves vacías que es lo que devuelve el postman
+  eliminarHeroe(id : string):Observable<{}>{
+    return this.http.delete<{}>(`${this.baseUrl}/heroes/${ id }`)
+  }
 }
