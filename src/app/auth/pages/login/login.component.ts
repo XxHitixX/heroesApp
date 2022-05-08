@@ -1,16 +1,38 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styles: [
+  styles: [`
+    .completo{
+      width: 100%
+    }
+  `
   ]
 })
 export class LoginComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private router : Router,
+    private authService : AuthService
+  ) { }
 
   ngOnInit(): void {
   }
 
+  ingresar(){
+    this.authService.loguin()
+    .subscribe(
+      param => {
+        console.log(param)
+        
+        if( param.id ){
+          this.router.navigate(['./heroes'])
+            }
+
+          }
+        )
+  }
 }
